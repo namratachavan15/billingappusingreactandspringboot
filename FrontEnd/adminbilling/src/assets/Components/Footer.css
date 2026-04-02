@@ -1,0 +1,344 @@
+/* Footer.css - PROFESSIONAL ENHANCEMENT */
+:root {
+  --footer-height: 60px;
+  --sidebar-width: 260px;
+  --sidebar-collapsed: 70px;
+  --primary-purple: #45247A;
+  --primary-light: #5a2f9c;
+  --bg-light: #ffffff;
+  --bg-lighter: #f8f9fa;
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+  --text-muted: #a0aec0;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 -4px 15px rgba(0, 0, 0, 0.08);
+  --radius: 10px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Footer Base */
+.billing-footer {
+  position: fixed!important;
+  bottom: 0;
+  left: var(--sidebar-width);
+  right: 0;
+  height: var(--footer-height);
+  background: linear-gradient(90deg, var(--bg-light), var(--bg-lighter));
+  backdrop-filter: blur(10px);
+  padding: 0 30px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
+  z-index: 999;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+}
+
+.app-wrapper.collapsed .billing-footer {
+  left: var(--sidebar-collapsed);
+}
+
+/* Footer Content */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+/* Footer Text */
+.footer-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.footer-text:hover {
+  color: var(--primary-purple);
+  transform: translateY(-1px);
+}
+
+.footer-icon {
+  font-size: 12px;
+  color: var(--primary-purple);
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.footer-text:hover .footer-icon {
+  opacity: 1;
+  transform: rotate(360deg);
+}
+
+.footer-message {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 400;
+  transition: var(--transition);
+}
+
+.footer-message:hover {
+  color: var(--text-secondary);
+}
+
+/* Footer Links */
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+  padding: 5px 0;
+}
+
+.footer-link:hover {
+  color: var(--primary-purple);
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-purple), var(--primary-light));
+  transition: var(--transition);
+  border-radius: 1px;
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+/* Footer Stats */
+.footer-stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.stat-item:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-purple);
+}
+
+/* Version Badge */
+.version-badge {
+  padding: 4px 10px;
+  background: linear-gradient(135deg, var(--primary-purple), var(--primary-light));
+  color: white;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(69, 36, 122, 0.2);
+  transition: var(--transition);
+}
+
+.version-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(69, 36, 122, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .footer-stats {
+    display: none;
+  }
+  
+  .footer-content {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 1024px) {
+  .billing-footer {
+    left: 0;
+    padding: 0 25px;
+  }
+  
+  .app-wrapper.collapsed .billing-footer {
+    left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .billing-footer {
+    height: auto;
+    min-height: var(--footer-height);
+    padding: 15px 20px;
+    position: static;
+    margin-top: auto;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .footer-links {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .footer-text,
+  .footer-message {
+    text-align: center;
+  }
+  
+  .version-badge {
+    order: -1;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .billing-footer {
+    padding: 12px 15px;
+  }
+  
+  .footer-content {
+    gap: 12px;
+  }
+  
+  .footer-links {
+    gap: 15px;
+  }
+  
+  .footer-link {
+    font-size: 12px;
+  }
+  
+  .footer-text {
+    font-size: 13px;
+  }
+  
+  .footer-message {
+    font-size: 12px;
+  }
+  
+  .version-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer-links {
+    gap: 10px;
+  }
+  
+  .footer-link {
+    font-size: 11px;
+  }
+  
+  .footer-text {
+    font-size: 12px;
+  }
+  
+  .footer-message {
+    display: none;
+  }
+}
+
+/* Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.billing-footer {
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Hover Effects */
+.footer-content {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Status Indicator */
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(0, 184, 148, 0.1);
+  border: 1px solid rgba(0, 184, 148, 0.2);
+  border-radius: 6px;
+  font-size: 12px;
+  color: #00b894;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #00b894;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+/* Add this to your Footer component JSX if needed */
+
+/* ✅ ADMIN: No sidebar → full width footer */
+.app-wrapper.admin-no-sidebar .billing-footer {
+  left: 0;
+}

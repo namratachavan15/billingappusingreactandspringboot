@@ -1,0 +1,8 @@
+/* ===== ADMIN FULL WIDTH ===== */
+.app-wrapper.admin-no-sidebar {
+  padding-left: 0 !important;
+}
+
+.app-wrapper.admin-no-sidebar .app-main {
+  margin-left: 0 !important;
+}
